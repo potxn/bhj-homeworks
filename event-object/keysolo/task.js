@@ -17,11 +17,16 @@ class Game {
   }
 
   registerEvents() {
+    document.addEventListener('keyup', (elem) => {
+      if (elem.key === 'Control' || elem.key === 'Alt' || elem.key === 'Shift') return;
+      else
+      elem.key === this.currentSymbol.textContent ? this.success() : this.fail();
+      });
     /*
       TODO:
       Написать обработчик события, который откликается
       на каждый введённый символ.
-      В случае правильного ввода символа вызываем this.success()
+      В случае правильного ввода слова вызываем this.success()
       При неправильном вводе символа - this.fail();
       DOM-элемент текущего символа находится в свойстве this.currentSymbol.
      */
@@ -91,4 +96,3 @@ class Game {
 }
 
 new Game(document.getElementById('game'))
-
